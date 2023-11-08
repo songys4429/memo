@@ -1,0 +1,12 @@
+void setup() {
+  Serial.begin(9600);
+  pinMode(13,OUTPUT);
+}
+void loop() {
+  if(Serial.available()>0){
+    String m = Serial.readString();
+    //Serial.print(m);
+    if(m.indexOf('0')==0) digitalWrite(13, LOW);
+    if(m.indexOf('1')==0) digitalWrite(13, HIGH);
+  }
+}
